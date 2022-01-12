@@ -29,6 +29,8 @@ jobs:
           brew install dylibbundler
           brew install opam
           brew install libtool
+          brew install autoconf
+          brew install automake
       # Build the OCaml compiler
       # - restore_cache:
       #      key: ocaml-cache-{{ checksum "Makefile.darwin"}}
