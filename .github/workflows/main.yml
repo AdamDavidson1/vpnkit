@@ -39,6 +39,10 @@ jobs:
       # Build the OCaml compiler
       # - restore_cache:
       #      key: ocaml-cache-{{ checksum "Makefile.darwin"}}
+      - name: Print previous failure
+        run: |
+          cat ~/.opam/log/charrua-core*.out
+          cat ~/.opam/log/charrua-core*.env
       - name: Build OCaml compiler
         run: |
           make -f Makefile.darwin ocaml
