@@ -41,8 +41,8 @@ jobs:
       #      key: ocaml-cache-{{ checksum "Makefile.darwin"}}
       - name: Build OCaml compiler
         run: |
-        make -f Makefile.darwin ocaml
-        eval $(opam env)
+          make -f Makefile.darwin ocaml
+          eval $(opam env)
       # - save_cache:
       #      paths:
       #        - /Users/distiller/.opam
