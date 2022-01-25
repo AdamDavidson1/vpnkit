@@ -57,7 +57,15 @@ jobs:
       # - restore_cache:
       #      key: depends-cache-{{ checksum "vpnkit.opam" }}-{{ checksum "Makefile.darwin"}}
       - name: Build the OCaml dependencies
-        run: make -f Makefile.darwin depends
+        run: |
+          if make -f Makefile.darwin depends; then
+            echo Success
+          else
+            cat ~/.opam/log/charrua-core*.out
+            cat ~/.opam/log/charrua-core*.env
+            exit 12
+          fi
+
       # - save_cache:
       #      paths:
       #        - /Users/distiller/.opam
